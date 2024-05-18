@@ -3,6 +3,7 @@
 
 #include <initializer_list>
 #include <string>
+#include <vector>
 namespace ipb {
 
 template <typename T>
@@ -54,11 +55,12 @@ template<typename T> std::string ipb::named_vector<T>::name(){
 }
 
 template<typename T> bool ipb::named_vector<T>::empty(){
+    if(container_name.empty()) return true;
     return elements.empty();
 }
 
 template<typename T> int ipb::named_vector<T>::size(){
-    return elements.size();
+    return elements.size() + container_name.size();
 }
 
 template<typename T> int ipb::named_vector<T>::capacity(){
