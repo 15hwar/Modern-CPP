@@ -1,7 +1,12 @@
+cmake_minimum_required(VERSION 3.29)
+project(homework_6)
+
 find_package(GTest REQUIRED)
 
-set(TEST_BINARY ${PROJECT_NAME}_test)
+include_directories(${PROJECT_SOURCE_DIR}/../include)
 
+set(TEST_BINARY ${PROJECT_NAME}_test)
+add_library(image ${PROJECT_SOURCE_DIR}/../src/image.cpp)
 add_executable(${TEST_BINARY}
                test_init.cpp
                test_histogram.cpp
